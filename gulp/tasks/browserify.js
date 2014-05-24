@@ -3,9 +3,9 @@ var browserify = require('browserify'),
     handleErrors = require('../util/handleErrors'),
     gulp = require('gulp');
 
-module.exports = function () {
+module.exports = function (debug) {
     return browserify('./src/app.js')
-        .bundle({debug: true})
+        .bundle({debug: debug})
         .on('error', handleErrors)
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./build'));
